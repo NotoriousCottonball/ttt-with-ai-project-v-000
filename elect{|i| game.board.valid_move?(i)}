@@ -1,0 +1,31 @@
+
+[1mFrom:[0m /home/NotoriousCottonball/ttt-with-ai-project-v-000/lib/players/computer.rb @ line 30 Players::Computer#minimax:
+
+    [1;34m14[0m: [32mdef[0m [1;34mminimax[0m(game, depth)
+    [1;34m15[0m:   [32mif[0m game.won? && (game.current_player == @player)
+    [1;34m16[0m:     [32mreturn[0m [1;34m10[0m - depth 
+    [1;34m17[0m:   [32melsif[0m game.won? && (game.current_player != @player)
+    [1;34m18[0m:     [32mreturn[0m [1;34m-10[0m + depth
+    [1;34m19[0m:   [32melsif[0m game.over?
+    [1;34m20[0m:     [32mreturn[0m [1;34m0[0m 
+    [1;34m21[0m:   [32mend[0m
+    [1;34m22[0m: 
+    [1;34m23[0m:   depth += [1;34m1[0m
+    [1;34m24[0m:   moves = {}
+    [1;34m25[0m:   
+    [1;34m26[0m:   ([31m[1;31m"[0m[31m1[1;31m"[0m[31m[0m..[31m[1;31m"[0m[31m9[1;31m"[0m[31m[0m).to_a.select{|i| game.board.valid_move?(i)}.each [32mdo[0m |space|
+    [1;34m27[0m:     new_game = game.clone
+    [1;34m28[0m:     new_game.board.update(space, game.current_player)
+    [1;34m29[0m:     moves[space] = minimax(new_game, depth)
+ => [1;34m30[0m:     binding.pry
+    [1;34m31[0m:   [32mend[0m
+    [1;34m32[0m:   
+    [1;34m33[0m:   best_score = [1;34m0[0m 
+    [1;34m34[0m:   [32mif[0m game.current_player == @player
+    [1;34m35[0m:     @best_move, best_score = moves.max_by {|k, v| v }
+    [1;34m36[0m:   [32melse[0m 
+    [1;34m37[0m:     @best_move, best_score = moves.min_by {|k, v| v }
+    [1;34m38[0m:   [32mend[0m 
+    [1;34m39[0m:   best_score
+    [1;34m40[0m: [32mend[0m
+

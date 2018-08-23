@@ -1,3 +1,4 @@
+require 'pry'
 class Game
   attr_accessor :board, :player_1, :player_2
    WIN_COMBINATIONS = [
@@ -41,7 +42,6 @@ class Game
     puts
     board.display
     move = current_player.move(self)
-    
     if board.valid_move?(move)
       board.update(move, current_player)
       

@@ -7,12 +7,12 @@ module Players
     
     def move(game) 
       @original_player = game.current_player
-      minimax(game)
+      minimax(game, 0)
     end 
     
     private
     
-    def minimax(game, depth = 0, best_score = {})
+    def minimax(game, depth, best_score = {})
       
       if game.won? && (game.current_player == @original_player)
         return (-100 + depth) 
